@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today is the Day</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBQMVZB9XX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SBQMVZB9XX');
+  </script>
+  <meta name="description" content="Today is the Day by Jude Pascal">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <script>
+    // Small click SFX early-fetched as ArrayBuffer for Web Audio (instant clicks).
+    // Music is handled by a native <audio> element (see below) so it can keep
+    // playing in the background and appear in the phone's media controls.
+    window.__audioEarly = {
+      sfxPlay: fetch('assets/audio/sfx-play.mp3').then(function(r) { return r.arrayBuffer(); }),
+      sfxStop: fetch('assets/audio/sfx-stop.mp3').then(function(r) { return r.arrayBuffer(); }),
+      sfxRewindPress: fetch('assets/audio/sfx-rewind-press.mp3').then(function(r) { return r.arrayBuffer(); }),
+      sfxFfPress: fetch('assets/audio/sfx-fast-forward-press.mp3').then(function(r) { return r.arrayBuffer(); }),
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <audio id="trackAudio" preload="auto" src="assets/audio/01-cobwebs.mp3"></audio>
+  <main class="page">
+    <section class="player-wrap" aria-label="Cassette player">
+      <div class="player" id="player">
+        <img class="player__layer player__reel" id="reelA" src="assets/reels-full/reel-001.webp" width="1731" height="3107" alt="">
+
+        <img class="player__layer player__body" src="assets/player.webp" width="1731" height="3107" alt="">
+
+        <div class="player__layer player__spinner-stack" id="spinnerStack">
+          <img class="player__spinner-frame is-active" data-frame="1" src="assets/spinners-full/spinner-1.webp" width="1731" height="3107" alt="">
+          <img class="player__spinner-frame" data-frame="2" src="assets/spinners-full/spinner-2.webp" width="1731" height="3107" alt="">
+          <img class="player__spinner-frame" data-frame="3" src="assets/spinners-full/spinner-3.webp" width="1731" height="3107" alt="">
+          <img class="player__spinner-frame" data-frame="4" src="assets/spinners-full/spinner-4.webp" width="1731" height="3107" alt="">
+          <img class="player__spinner-frame" data-frame="5" src="assets/spinners-full/spinner-5.webp" width="1731" height="3107" alt="">
+          <img class="player__spinner-frame" data-frame="6" src="assets/spinners-full/spinner-6.webp" width="1731" height="3107" alt="">
+        </div>
+
+        <img class="player__layer player__press" id="pressRewind" src="assets/btn-rewind-pressed.webp" alt="" hidden>
+        <img class="player__layer player__press" id="pressPlay" src="assets/btn-play-pressed.webp" alt="" hidden>
+        <img class="player__layer player__press" id="pressFF" src="assets/btn-fast-forward-pressed.webp" alt="" hidden>
+        <img class="player__layer player__press" id="pressStop" src="assets/btn-stop-pressed.webp" alt="" hidden>
+
+        <button type="button" class="player__btn" data-action="rewind" aria-label="Rewind"></button>
+        <button type="button" class="player__btn" data-action="play" aria-label="Play"></button>
+        <button type="button" class="player__btn" data-action="ff" aria-label="Fast forward"></button>
+        <button type="button" class="player__btn" data-action="stop" aria-label="Stop"></button>
+      </div>
+    </section>
+
+    <aside class="shop" aria-label="Album purchases">
+      <a class="shop__image" href="https://judepascal.bigcartel.com/product/today-is-the-day-vinyl" target="_blank" rel="noopener noreferrer">
+        <img src="assets/vinyl.jpg" width="1100" height="760" alt="">
+      </a>
+      <a class="shop__image" href="https://judepascal.bigcartel.com/product/today-is-the-day-cd" target="_blank" rel="noopener noreferrer">
+        <img src="assets/cd.jpg" width="1100" height="590" alt="">
+      </a>
+      <a class="shop__email" href="mailto:judepascal.mp3@gmail.com?subject=Hey%20Jude!" target="_blank" rel="noopener noreferrer" aria-label="Email Jude Pascal">
+        <img src="assets/email.png" width="180" height="130" alt="">
+      </a>
+    </aside>
+
+    <aside class="poster" aria-label="Sweet July tour poster">
+      <a class="poster__link" href="https://linktr.ee/judepascal" target="_blank" rel="noopener noreferrer">
+        <img src="assets/poster.jpg" width="1100" height="1556" alt="">
+      </a>
+    </aside>
+  </main>
+
+  <script src="js/player.js"></script>
+</body>
+</html>
